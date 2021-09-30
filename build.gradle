@@ -1,0 +1,31 @@
+plugins {
+    id 'org.springframework.boot' version '2.1.4.RELEASE'
+    id 'java'
+}
+apply plugin: 'io.spring.dependency-management'
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-web')
+//    compile('org.springframework.boot:spring-boot-starter-thymeleaf') // test1.html 사용을 위한 추가
+    compile('org.apache.tomcat.embed:tomcat-embed-jasper:8.5.24')              // jsp 사용을 위한 추가
+    compile('javax.servlet:jstl:1.2')
+    compile("org.springframework.boot:spring-boot-starter-data-jpa")
+    compile("org.springframework.boot:spring-boot-starter-test")
+    compile("org.projectlombok:lombok:1.16.18")
+    compile("com.h2database:h2")
+    compile("com.fasterxml.jackson.core:jackson-databind:2.9.8")
+
+    testCompile('junit:junit:4.12')
+//    complie("org.springframework.boot:spring-boot-devtools")
+}
+test{
+    useJUnitPlatform()
+}
